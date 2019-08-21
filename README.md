@@ -12,7 +12,7 @@ HLCID is an OTP application which runs on each of your nodes. You can ask it for
 
 ```elixir
 id = HLCID.generate()
-url_safe_id = HLCID.to_base64()
+url_safe_id = HLCID.to_base64(id)
 => "AWy00jCrAABKaDWL0Z6heg=="
 ```
 
@@ -30,7 +30,7 @@ HLCs automatically account for clock drift by utilizing both physical and logica
 While HLCID works for our use case, you should be aware of the alternative solutions and chose one that matches your needs.
 
 * Flake - Flake IDs heavily inspired HLCID. The main differences are that HLCID uses a purely random set of bytes instead of the machine name. If HLCIDs are broadcast across your cluster, they can be also be used for snapshots.
-* KSUID - These ids provide the same benefits of flake and HLCID, but KSUID allows for far more events in a given time window due to its use of randomness. It also has no bounds on the physical clock when means it can't become unavailable.
+* [KSUID](https://github.com/segmentio/ksuid) - These ids provide the same benefits of flake and HLCID, but KSUID allows for far more events in a given time window due to its use of randomness. It also has no bounds on the physical clock when means it can't become unavailable.
 
 ## Installation
 
