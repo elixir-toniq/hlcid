@@ -1,0 +1,4 @@
+%{
+  "hlclock": {:hex, :hlclock, "1.0.0", "7a72fc7a20a9382499216227edf97a8b118e21fc3fcad0e81b8d10c616ce1431", [:mix], [], "hexpm"},
+  "uuid": {:hex, :uuid, "1.1.8", "e22fc04499de0de3ed1116b770c7737779f226ceefa0badb3592e64d5cfb4eb9", [:mix], [], "hexpm"},
+}
