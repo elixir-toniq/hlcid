@@ -5,7 +5,7 @@ defmodule HLCID do
 
   ```elixir
   id = HLCID.generate()
-  url_safe_id = HLCID.to_base64()
+  url_safe_id = HLCID.to_base64(id)
   => "AWy00jCrAABKaDWL0Z6heg=="
   ```
 
