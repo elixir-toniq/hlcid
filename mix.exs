@@ -10,7 +10,6 @@ defmodule Hlcid.MixProject do
       elixir: "~> 1.8",
       start_permanent: Mix.env() == :prod,
       deps: deps(),
-
       description: description(),
       package: package(),
       deps: deps(),
@@ -23,7 +22,7 @@ defmodule Hlcid.MixProject do
   # Run "mix help compile.app" to learn about applications.
   def application do
     [
-      extra_applications: [:logger],
+      extra_applications: [:logger, :crypto],
       mod: {HLCID.Application, []}
     ]
   end
