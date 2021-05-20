@@ -24,6 +24,7 @@ HLCs automatically account for clock drift by utilizing both physical and logica
 
 * [HLClock](https://github.com/toniqsystems/hlclock) - The library which provides the hybrid logical clocks.
 * [ecto_hlclock](https://github.com/toniqsystems/ecto_hlclock) - Provides Ecto migrations and types for using HLCs as a database id.
+* [HLClocksynchronizer](https://github.com/SimpleBet/hlclock_synchronizer) - Provides a GenServer for syncing hybrid logical clock timestamps between nodes using Phoenix.PubSub
 
 ## Alternatives
 
