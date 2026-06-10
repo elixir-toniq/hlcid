@@ -37,19 +37,29 @@ defmodule HLCID do
 
   @doc """
   Converts an id to url safe base64.
+
+  `opts` are forwarded to `Base.url_encode64/2`. Useful, for example, to
+  omit padding when the id needs to be embedded in contexts where `=` is
+  not safe (e.g. CSS/DOM selectors):
+
+      HLCID.to_base64(id, padding: false)
   """
-  def to_base64(ts) do
+  def to_base64(ts, opts \\ []) do
     ts
     |> HLClock.Timestamp.encode()
-    |> Base.url_encode64()
+    |> Base.url_encode64(opts)
   end
 
   @doc """
-  Converts a base64 binary back to a id
+  Converts a base64 binary back to an id.
+
+  `opts` are forwarded to `Base.url_decode64!/2`, e.g.:
+
+      HLCID.from_base64(encoded, padding: false)
   """
-  def from_base64(ts) when is_binary(ts) do
+  def from_base64(ts, opts \\ []) when is_binary(ts) do
     ts
-    |> Base.url_decode64!()
+    |> Base.url_decode64!(opts)
     |> HLClock.Timestamp.decode()
   end
 end
