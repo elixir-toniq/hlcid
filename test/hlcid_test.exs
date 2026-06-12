@@ -17,4 +17,19 @@ defmodule HLCIDTest do
            |> HLCID.to_base64()
            |> HLCID.from_base64() == id
   end
+
+  test "can encode and decode without padding" do
+    id = HLCID.generate()
+    encoded = HLCID.to_base64(id, padding: false)
+
+    refute encoded =~ "="
+    assert HLCID.from_base64(encoded, padding: false) == id
+  end
+
+  test "from_base64 ignores whitespace when requested" do
+    id = HLCID.generate()
+    encoded = HLCID.to_base64(id) <> "\n"
+
+    assert HLCID.from_base64(encoded, ignore: :whitespace) == id
+  end
 end
